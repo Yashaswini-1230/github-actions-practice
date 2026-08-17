@@ -36,5 +36,5 @@ jobs:
       - name: Gender
         run: echo "${{ inputs.gender }}"
 
-      -name: Married 
+      - name: Married 
         run: echo "${{ inputs.married }}"
