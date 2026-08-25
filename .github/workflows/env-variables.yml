@@ -1,8 +1,40 @@
+# name: Environment Variables
+
+# on:
+#   push:
+#     branches: [ main ]
+
+# jobs:
+#   job1:
+#     runs-on: ubuntu-latest
+    
+
+#     steps:
+#       - name: Greetings
+#         env:
+#           CHANNEL_NAME: InterviewPro
+#         run: echo "Hello, ${{env.CHANNEL_NAME}}!"
+
+#       - name: Get comments on ${{env.CHANNEL_NAME}}
+#         run: |
+#           #HTTPS /api/comments
+#           echo "Awesome!!"
+#           echo "Great content"
+#           echo "Thank you for sharing."
+  # jobs2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Greetings
+  #       run: echo "Hello, ${{env.CHANNEL_NAME}} from job2"
+
+
 name: Environment Variables
 
 on:
   push:
     branches: [ main ]
+env:
+  CHANNEL_NAME: InterviewPro
 
 jobs:
   job1:
@@ -10,19 +42,12 @@ jobs:
     
 
     steps:
-      - name: Greetings
-        env:
-          CHANNEL_NAME: InterviewPro
+      - name: Greetings   
         run: echo "Hello, ${{env.CHANNEL_NAME}}!"
 
-      - name: Get comments on ${{env.CHANNEL_NAME}}
-        run: |
-          #HTTPS /api/comments
-          echo "Awesome!!"
-          echo "Great content"
-          echo "Thank you for sharing."
-  # jobs2:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Greetings
-  #       run: echo "Hello, ${{env.CHANNEL_NAME}} from job2"
+        - name: Set env variables programmatically   
+        run: echo "count=100000">> $GITHUB_ENV
+
+        - name: Access env variable 
+          run: echo ${{env.count}}
+
