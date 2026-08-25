@@ -13,7 +13,7 @@ jobs:
         id: set-output
         shell: bash
         run: |
-          echo "name:InterviewPro" >> $GITHUB_OUTPUT
+          echo "name=InterviewPro" >> $GITHUB_OUTPUT
           echo "age=23" >> $GITHUB_OUTPUT
 
       - name: access output
