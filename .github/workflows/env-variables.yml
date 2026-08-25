@@ -7,11 +7,12 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    env:
-      CHANNEL_NAME: InterviewPro
+    
 
     steps:
       - name: Greetings
+        env:
+          CHANNEL_NAME: InterviewPro
         run: echo "Hello, ${{env.CHANNEL_NAME}}!"
 
       - name: Get comments on ${{env.CHANNEL_NAME}}
@@ -20,8 +21,8 @@ jobs:
           echo "Awesome!!"
           echo "Great content"
           echo "Thank you for sharing."
-  jobs2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Greetings
-        run: echo "Hello, ${{env.CHANNEL_NAME}} from job2"
+  # jobs2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Greetings
+  #       run: echo "Hello, ${{env.CHANNEL_NAME}} from job2"
