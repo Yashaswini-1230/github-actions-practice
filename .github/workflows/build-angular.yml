@@ -33,7 +33,9 @@ jobs:
     steps:
       - name: Test
         run: echo " test step "
- deploy-angular:
+        
+        
+  deploy-angular:
     runs-on: ubuntu-latest
     needs: [build-angular, job2]
 
