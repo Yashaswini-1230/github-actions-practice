@@ -3,14 +3,12 @@ name: Environment Variables
 on:
   push:
     branches: [ main ]
-env:
-  CHANNEL_NAME: InterviewPro
-  COUNT: 10000000
 
 jobs:
-  demo:
+  job1:
     runs-on: ubuntu-latest
-
+    env:
+      CHANNEL_NAME: InterviewPro
 
     steps:
       - name: Greetings
