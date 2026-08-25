@@ -40,14 +40,13 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     
-
     steps:
       - name: Greetings   
         run: echo "Hello, ${{env.CHANNEL_NAME}}!"
 
-        - name: Set env variables programmatically   
+      - name: Set env variables programmatically   
         run: echo "count=100000">> $GITHUB_ENV
 
-        - name: Access env variable 
-          run: echo ${{env.count}}
+      - name: Access env variable 
+        run: echo ${{env.count}}
 
