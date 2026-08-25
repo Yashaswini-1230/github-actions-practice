@@ -26,3 +26,9 @@ jobs:
         with:
           name: Build-artifact
           path: dist
+  deploy-angular:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo " test step "
