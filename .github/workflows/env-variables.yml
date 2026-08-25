@@ -50,3 +50,14 @@ jobs:
       - name: Access env variable 
         run: echo ${{env.count}}
 
+      - name: update variables programmatically   
+        run: |
+            echo "CHANNEL_NAME=Test">> $GITHUB_ENV
+            echo "count=200000">> $GITHUB_ENV
+            
+      - name: Access updated env variable 
+        run: |
+            echo ${{env.count}}
+            echo ${{env.CHANNEL_NAME}}
+
+
