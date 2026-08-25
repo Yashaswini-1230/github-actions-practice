@@ -28,6 +28,7 @@ jobs:
           path: dist
   deploy-angular:
     runs-on: ubuntu-latest
+    needs: build-angular
 
     steps:
       - name: Test
