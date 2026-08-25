@@ -22,7 +22,7 @@ jobs:
         run: npm run build
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload123-artifact@v7
         with:
           name: Build-artifact
           path: dist
