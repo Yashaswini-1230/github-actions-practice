@@ -28,6 +28,49 @@
   #       run: echo "Hello, ${{env.CHANNEL_NAME}} from job2"
 
 
+# name: Environment Variables
+
+# on:
+#   push:
+#     branches: [main]
+
+# env:
+#   CHANNEL_NAME: InterviewPro
+
+# jobs:
+#   job1:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Greetings
+#         run: echo "Hello, ${{ env.CHANNEL_NAME }}!"
+
+#       - name: Set env variables programmatically
+#         run: echo "count=100000" >> $GITHUB_ENV
+
+#       - name: Access env variable
+#         run: echo ${{ env.count }}
+
+#       - name: update variables programmatically
+#         run: |
+#           echo "CHANNEL_NAME=Test" >> $GITHUB_ENV
+#           echo "count=200000" >> $GITHUB_ENV
+
+#       - name: Access updated env variable
+#         run: |
+#           echo ${{ env.count }}
+#           echo ${{ env.CHANNEL_NAME }}
+
+#   job2:
+#     runs-on: ubuntu-latest
+#     needs: job1
+
+#     steps:
+#       - name: Greetings
+#         run: echo "Hello, $CHANNEL_NAME ! from job2"
+
+
+
 name: Environment Variables
 
 on:
@@ -45,26 +88,8 @@ jobs:
       - name: Greetings
         run: echo "Hello, ${{ env.CHANNEL_NAME }}!"
 
-      - name: Set env variables programmatically
-        run: echo "count=100000" >> $GITHUB_ENV
+      - name: Access Repository variable
+        run: echo ${{ vars.USERNAME }}
 
-      - name: Access env variable
-        run: echo ${{ env.count }}
-
-      - name: update variables programmatically
-        run: |
-          echo "CHANNEL_NAME=Test" >> $GITHUB_ENV
-          echo "count=200000" >> $GITHUB_ENV
-
-      - name: Access updated env variable
-        run: |
-          echo ${{ env.count }}
-          echo ${{ env.CHANNEL_NAME }}
-
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-
-    steps:
-      - name: Greetings
-        run: echo "Hello, $CHANNEL_NAME ! from job2"
+      - name: Access Repository secret
+        run: echo ${{secrets.USERNAME }}
